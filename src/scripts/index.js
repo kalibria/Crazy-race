@@ -1,0 +1,1 @@
+import { addImgs } from "./addImg";

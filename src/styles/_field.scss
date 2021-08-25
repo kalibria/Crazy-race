@@ -11,7 +11,7 @@ body {
 .field {
     min-width: 50%;
     min-height: 500px;
-    background-color: #58ca58;
+    background-color: $primary-color;
     margin: 40px;
     position: relative;
 
@@ -30,6 +30,8 @@ body {
         padding-bottom: 10%;
         margin-left: 5%;
 
+        
+
         .competitor-info {
             display: flex;
             margin-top: 20px;
@@ -45,6 +47,8 @@ body {
                 margin-bottom: 0;
             }
 
+            
+
             .competitor-info__flag {
                 width: 50px; 
                 height: 30px; 
@@ -53,10 +57,20 @@ body {
             }
 
             .competitor-info__competitor {
-                width: 12%;
-                height: 70px;
-                background-color: #ee36c0;
+                width: 17%;
                 margin-right: 1em;
+
+                .competitor-info__competitor-img {
+                    width: 100%;
+                    height: auto;
+                    -webkit-transform: scaleX(-1);
+
+                }
+
+                // &:nth-child(3) > img {
+                //     -webkit-transform: none;
+                // }
+
             }
 
             .competitor-info__track {
@@ -69,50 +83,8 @@ body {
         }
     }
 
-    .bet-window {
-        width: 50%;
-        height: 80px;
-        background-color: #efe7e7;
-        position: absolute;
-        top: 10px;
-        left: 10px;
+   
 
-        // .bet-window__text {
-        //     margin-top: 5px;
-        //     margin-bottom: 5px;
-        // }
-
-        
-
-        .bet-window__wrapper {
-            display: flex;
-            width: 80%;
-            justify-content: space-between;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .bet-window__flag {
-            width: 24%;
-            height: 40px;
-            background-color: #ebeb5a;
-            
-        }
-    }
-
-    .balance-window {
-        width: 20%;
-        height: 80px;
-        background-color: #efe7e7;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-
-        // .balance-window__text {
-        //     margin-top: 5px;
-        //     margin-bottom: 5px;
-        // }
-    }
 
    
 }

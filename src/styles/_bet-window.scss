@@ -11,22 +11,20 @@
     // .bet-window__text {
     //     margin-top: 5px;
     //     margin-bottom: 5px;
-    // }
+    // }  
+}
 
+.bet-window__wrapper {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bet-window__flag {
+    width: 24%;
+    height: 40px;
+    background-color: #ebeb5a;
     
-
-    .bet-window__wrapper {
-        display: flex;
-        width: 80%;
-        justify-content: space-between;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .bet-window__flag {
-        width: 24%;
-        height: 40px;
-        background-color: #ebeb5a;
-        
-    }
 }

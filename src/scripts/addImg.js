@@ -5,18 +5,20 @@ const imgs = [
     "./img/slug4.png",
 ];
 
-console.log("imgs", imgs);
 
 const competitors = document.querySelectorAll(".competitor-info__competitor");
-console.log(competitors);
 
 export function addImgs(arr) {
 
-    const imgsHtml = arr.map((src, i) => {
+    const imgsHtml = arr.map((src, i, arr) => {
         let htmlImg = document.createElement("img");
         htmlImg.src = src;
         htmlImg.className = "competitor-info__competitor-img";
         competitors[i].append(htmlImg);
+
+        if (imgs[i] == "./img/slug3.png") {
+            htmlImg.className = "competitor-info__competitor-img imgTransformNone";
+        }
 
     })
 

@@ -1,84 +1,135 @@
-//получаем общие данные по участнику
-export function getCompetitorInfo() {
+const TOTAL_EXPECTED_FLAG_COUNT = 4
+window.flagsLoadedCount = 0
+window.competitors = []
 
-    let generalInfo = fetch("https://randomuser.me/api/")
-        .then(Response => Response.json())
-        .then(data => data)
-        .catch(err => console.log(err))
-    console.log(generalInfo);
-    return generalInfo;
-}
-
-//получаем HTML элемент флаг
-
-function getImgFlag(data) {
-    let ImgFlag = getCompetitorInfo().then((data) => {
-
-        let nat = data.results[0].nat;
-        let ImgFlag = document.createElement("img");
-        ImgFlag.src = `https://www.countryflags.io/${nat}/flat/64.png`;
-
-        return ImgFlag;
-
-    })
-        .catch(console.log);
-    return ImgFlag;
-
-}
-
-// вставляем HTML элемент флаг в DOM дерево
-
+// GET UI ELEMS
 let divForFlag = document.querySelectorAll(".competitor-info__flag");
 divForFlag = Array.from(divForFlag);
 
 let divForBetWindow = document.querySelectorAll(".bet-window__flag");
 divForBetWindow = Array.from(divForBetWindow);
 
-divForFlag.map((item, i, arr) => {
-    getImgFlag().then((getImgFlag) => {
-        item.append(getImgFlag);
+let spiner1 = document.querySelector(".spiner1");
+let divAllCompetrInfo = document.querySelector(".wrapper-for-all");
 
-        let newFlag = new Image;
-        newFlag.src = getImgFlag.src;
-        divForBetWindow[i].append(newFlag)
-
-    })
-        .catch(console.log);
-
+const competitorsToFetch = divForFlag; // 4
+const personsPromises = competitorsToFetch.map((competitor, i) => {
+    return fetch("https://randomuser.me/api/");
 });
 
-// получаем HTML элемент имя
+console.log("personsPromises", personsPromises);
 
-function getName(data) {
-    let name = getCompetitorInfo().then((data) => {
-        let name = data.results[0].name.first + `${' '}` + data.results[0].name.last;
 
-        let elName = document.createElement("p");
-        elName.innerText = name;
-        console.log(elName)
-        return elName;
-    })
-        .catch(console.log);
-    console.log("name10", name)
-    return name;
 
+
+async function fetchData(personsPromises) {
+    const rawResults = await Promise.all(personsPromises);
+    console.log("rawResults", rawResults);
+    const toJSONPromises = rawResults.map(result => result.json())
+
+    const allPersons = await Promise.all(toJSONPromises);
+    console.log("allPersons", allPersons);
+    return allPersons
 }
 
-//вставляем HTML элемент имя
+fetchData(personsPromises).then((allPersons) => {
+    storePersonsInWindowObj(allPersons)
 
-divForFlag.map((item) => {
-    getName().then((data) => item.after(data))
+    // competitors are now in window object, we can access them whenever we want
+
+    console.log('window.competitors', window.competitors)
+
+    // rest of program should go here...
+    const allFlagsForCompetitors = getAllFlagsEl(window.competitors);
+    const allFlagsForBetWindow = getAllFlagsEl(window.competitors);
+    console.log("allFlagsForCompetitors", allFlagsForCompetitors);
+
+    divForFlag.forEach((item, i) => item.append(allFlagsForCompetitors[i]));
+
+    divForBetWindow.forEach((item, i) => item.append(allFlagsForBetWindow[i]));
+
+    getAllElNames(window.competitors).forEach((item, i) => allFlagsForCompetitors[i].after(item));
+
+
 })
 
 
+function storePersonsInWindowObj(allPersons) {
+    allPersons.forEach((personToResolve) => {
+        const personObjToStore = {
+            name: getName(personToResolve),
+            nat: getNat(personToResolve)
+        }
+
+        window.competitors.push(personObjToStore);
+
+    })
+}
+
+function getAllFlagsEl(jeneralInfo) {
+    const allNats = [];
+
+    jeneralInfo.forEach(i => allNats.push(i.nat))
+    console.log("allNats", allNats)
+
+    const allFlagsImg = [];
+
+    allNats.map(el => {
+        let ImgFlag = document.createElement("img");
+        ImgFlag.src = `https://www.countryflags.io/${el}/flat/64.png`;
+        allFlagsImg.push(ImgFlag);
+        console.log("allFlagsImg", allFlagsImg);
+
+        ImgFlag.onload = removeSpiner
+    })
+
+
+    return allFlagsImg;
+};
+
+
+function getAllElNames(jeneralInfo) {
+    const allElNames = [];
+
+    jeneralInfo.forEach(item => {
+        let elName = document.createElement("p");
+        elName.innerText = item.name;
+        allElNames.push(elName)
+    });
+    console.log("allNames", allElNames);
+
+    return allElNames;
+}
+
+
+function getName(data) {
+    return `${data.results[0].name.first} ${data.results[0].name.last}`;
+}
+
+function getNat(data) {
+    return data.results[0].nat
+}
+
+
+function removeSpiner() {
+    window.flagsLoadedCount += 1;
+
+    if (window.flagsLoadedCount === TOTAL_EXPECTED_FLAG_COUNT) {
+        hideShowElements(spiner1, divAllCompetrInfo)
+    }
+}
 
 
 
+// функция для скрытия и показа элемента на странице
+function hideShowElements(hiddenEl, shownEl) {
+    hiddenEl.style.display = "none";
+    shownEl.style.display = "block";
+}
 
 
 
-
-
+//---------------------
 
 
 

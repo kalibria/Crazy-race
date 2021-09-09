@@ -1,9 +1,9 @@
 @import './variables';
 
 body {
-    min-width: 300px;
-    min-height: 300px;
-    margin: 0;
+    width: 770px;
+    height: 500px;
+    margin: auto;
     padding: 0;
     background-color: $additional-color;
 }
@@ -67,9 +67,6 @@ body {
 
 .competitor-info__competitor {
     width: 17%;
-    animation-name: runLeft;
-    animation-duration: 5s;
-    animation-fill-mode: forwards;
     
 }
 

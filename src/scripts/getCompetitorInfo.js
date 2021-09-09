@@ -17,18 +17,12 @@ const personsPromises = competitorsToFetch.map((competitor, i) => {
     return fetch("https://randomuser.me/api/");
 });
 
-console.log("personsPromises", personsPromises);
-
-
-
 
 async function fetchData(personsPromises) {
     const rawResults = await Promise.all(personsPromises);
-    console.log("rawResults", rawResults);
     const toJSONPromises = rawResults.map(result => result.json())
-
     const allPersons = await Promise.all(toJSONPromises);
-    console.log("allPersons", allPersons);
+
     return allPersons
 }
 
@@ -37,12 +31,9 @@ fetchData(personsPromises).then((allPersons) => {
 
     // competitors are now in window object, we can access them whenever we want
 
-    console.log('window.competitors', window.competitors)
-
     // rest of program should go here...
     const allFlagsForCompetitors = getAllFlagsEl(window.competitors);
     const allFlagsForBetWindow = getAllFlagsEl(window.competitors);
-    console.log("allFlagsForCompetitors", allFlagsForCompetitors);
 
     divForFlag.forEach((item, i) => item.append(allFlagsForCompetitors[i]));
 
@@ -70,7 +61,6 @@ function getAllFlagsEl(jeneralInfo) {
     const allNats = [];
 
     jeneralInfo.forEach(i => allNats.push(i.nat))
-    console.log("allNats", allNats)
 
     const allFlagsImg = [];
 
@@ -78,7 +68,6 @@ function getAllFlagsEl(jeneralInfo) {
         let ImgFlag = document.createElement("img");
         ImgFlag.src = `https://www.countryflags.io/${el}/flat/64.png`;
         allFlagsImg.push(ImgFlag);
-        console.log("allFlagsImg", allFlagsImg);
 
         ImgFlag.onload = removeSpiner
     })
@@ -96,7 +85,6 @@ function getAllElNames(jeneralInfo) {
         elName.innerText = item.name;
         allElNames.push(elName)
     });
-    console.log("allNames", allElNames);
 
     return allElNames;
 }

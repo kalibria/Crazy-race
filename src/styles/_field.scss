@@ -10,7 +10,7 @@ body {
 
 .field {
     min-width: 50%;
-    min-height: 500px;
+    height: 1000px;
     background-color: $primary-color;
     margin: 40px;
     position: relative;   
@@ -24,9 +24,9 @@ body {
     margin-bottom: 0.2em;
 }
 
-// .wrapper-for-all {
-//     display: none;
-// }
+.wrapper-for-all {
+    display: none;
+}
 
 .wrapper {
     display: flex;
@@ -48,7 +48,7 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
     width: 80%;
-    justify-content: space-between;
+    
 
     &:first-child {
         margin-top: 0;
@@ -67,8 +67,10 @@ body {
 
 .competitor-info__competitor {
     width: 17%;
-    margin-right: 1em;
-    margin-left: 1em;
+    animation-name: runLeft;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+    
 }
 
 .competitor-info__wrapper{
@@ -80,18 +82,20 @@ body {
     width: 100%;
     height: auto;
     transform: scaleX(-1);
-
 }
 
 .imgTransformNone {
     transform: none;
 }
 
-.competitor-info__track {
+.track {
     width: 80%; 
     height: 10px; 
     background-color: rgb(54, 101, 231);
-    margin-top: 40px;
+    margin-left: 70px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    
 }
 
 .flag{
@@ -104,5 +108,17 @@ body {
 
 .flag {
     background-size: cover;
+}
+
+.btn-start {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    width: 100px;
+    height: 50px;
+}
+
+.btn-start:hover{
+    background-color: #a9b1b1;
 }
 

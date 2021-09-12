@@ -1,5 +1,5 @@
-const TOTAL_EXPECTED_FLAG_COUNT = 4
-window.flagsLoadedCount = 0
+const TOTAL_EXPECTED_FLAG_COUNT = 4;
+window.flagsLoadedCount = 0;
 window.competitors = []
 
 // GET UI ELEMS
@@ -44,12 +44,13 @@ fetchData(personsPromises).then((allPersons) => {
 
 })
 
-
 function storePersonsInWindowObj(allPersons) {
+    let id = 0;
     allPersons.forEach((personToResolve) => {
         const personObjToStore = {
             name: getName(personToResolve),
-            nat: getNat(personToResolve)
+            nat: getNat(personToResolve),
+            id: id++
         }
 
         window.competitors.push(personObjToStore);

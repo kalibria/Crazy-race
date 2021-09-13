@@ -5,7 +5,6 @@ export function findfirst() {
     const winnerAndLooser = firstFinished();
     console.log("winLos1", winnerAndLooser);
     const idWinner = winnerAndLooser[0].id;
-    console.log("idWinner", idWinner);
     return idWinner
 }
 
@@ -19,7 +18,20 @@ export function findLastDuration() {
 export function highlightWinner() {
 
     const elWithId = document.getElementById(findfirst());
-    elWithId.style.width = "200px";
+    elWithId.className = "winnerFlag";
+
+    const elWrapperForWinner = document.createElement("div");
+    elWrapperForWinner.className = "wrapperForWinner";
+
+    const field = document.querySelector(".field");
+    field.append(elWrapperForWinner);
+
+    elWrapperForWinner.append(elWithId);
+
+    // const textWinner = document.createElement("p");
+    // textWinner.className = "textWinner";
+    // textWinner.innerText = "WINNER!";
+    // elWrapperForWinner.before(textWinner);
 
 }
 

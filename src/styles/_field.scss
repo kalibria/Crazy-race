@@ -107,6 +107,32 @@ body {
     background-size: cover;
 }
 
+.wrapperForWinner {
+    width: 350px;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    background-color: $additional-color;
+}
+
+.winnerFlag {
+    width: 150px;
+    // position: absolute;
+    // left: 200px;
+    // top: 200px;
+}
+
+.winnerFlag > img {
+    width: 100%;
+}
+
+.textWinner {
+
+}
+
 .btn-start {
     position: absolute;
     top: 40px;

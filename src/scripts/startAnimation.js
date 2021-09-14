@@ -11,9 +11,6 @@ btnStart.addEventListener("click", startMoving);
 
 export function startMoving() {
 
-
-
-
     allCompetitors.forEach((item, i) => {
         let randomX1 = Math.floor(Math.random() * 10) / 10;
         let randomY1 = Math.floor(Math.random() * 10) / 10;
@@ -27,7 +24,7 @@ export function startMoving() {
 
     })
 
-    setTimeout(highlightWinner, findLastDuration() * 1000)
+    setTimeout(highlightWinner, findLastDuration() * 0)
     console.log("winComp1", window.competitors[0].duration);
     firstFinished()
 }

@@ -110,12 +110,16 @@ body {
 .wrapperForWinner {
     width: 350px;
     height: auto;
-    display: flex;
-    justify-content: space-around;
+   
     position: absolute;
     top: 200px;
     left: 200px;
     background-color: $additional-color;
+}
+
+.wrapperForFlags {
+    display: flex;
+    justify-content: space-around;
 }
 
 .winnerFlag {
@@ -129,8 +133,16 @@ body {
     width: 100%;
 }
 
-.textWinner {
+.winnerFlag > p {
+    text-align: center;
+}
 
+.textWinner {
+    font-size: 1.5em;
+    text-align: center;
+    margin: 0;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
 }
 
 .btn-start {

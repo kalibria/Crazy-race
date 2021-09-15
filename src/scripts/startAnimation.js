@@ -9,7 +9,8 @@ console.log("allComp1", allCompetitors);
 btnStart.addEventListener("click", startMoving);
 
 
-export function startMoving() {
+export function startMoving(event) {
+    event.currentTarget.setAttribute("disabled", "disabled");
 
     allCompetitors.forEach((item, i) => {
         let randomX1 = Math.floor(Math.random() * 10) / 10;

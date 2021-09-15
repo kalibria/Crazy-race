@@ -41,6 +41,8 @@ fetchData(personsPromises).then((allPersons) => {
 
     getAllElNames(window.competitors).forEach((item, i) => allFlagsForCompetitors[i].after(item));
 
+    getAllElNames(window.competitors).forEach((item, i) => allFlagsForBetWindow[i].after(item));
+
 
 })
 

@@ -2,7 +2,6 @@ const allFlagsInBetWindow = Array.from(document.querySelectorAll(".bet-window__f
 console.log("betFlags", allFlagsInBetWindow);
 
 
-
 export function fixRate(event) {
     console.log("currentTar", event.currentTarget)
     event.currentTarget.classList = "bet-window__flag-fixedBet";

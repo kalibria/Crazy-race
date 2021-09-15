@@ -2,28 +2,45 @@
 
 .bet-window {
     width: 260px;
-    height: 100px;
+    height: 120px;
     background-color: #efe7e7;
     position: absolute;
     top: 10px;
     left: 10px;
+  
+}
 
-    // .bet-window__text {
-    //     margin-top: 5px;
-    //     margin-bottom: 5px;
-    // }  
+.bet-window > p {
+    margin-bottom: 0;
 }
 
 .bet-window__wrapper {
     display: flex;
-    width: 80%;
+    width: 100%;
     justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
 }
 
 .bet-window__flag {
-    width: 24%;
+    width: 60px;
     height: 40px;
-    
+    border: none;
+    padding: 0;
+}
+
+.bet-window__flag:hover {
+    width: 63px;
+}
+
+.bet-window__flag-fixedBet {
+    width: 65px;    
+    border: none;
+    padding: 0;
+}
+
+.bet-window__grayscale {
+filter: grayscale(1);
+border: none;
+padding: 0;
 }

@@ -65,6 +65,10 @@ body {
     margin-right: 1em;
 }
 
+.competitor-info__flag > p {
+    font-size: 12px;
+}
+
 .competitor-info__competitor {
     width: 17%;
     
@@ -124,9 +128,7 @@ body {
 
 .winnerFlag {
     width: 150px;
-    // position: absolute;
-    // left: 200px;
-    // top: 200px;
+
 }
 
 .winnerFlag > img {

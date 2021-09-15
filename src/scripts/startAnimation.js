@@ -24,7 +24,7 @@ export function startMoving() {
 
     })
 
-    setTimeout(highlightWinner, findLastDuration() * 0)
+    setTimeout(highlightWinner, findLastDuration() * 1000)
     console.log("winComp1", window.competitors[0].duration);
     firstFinished()
 }

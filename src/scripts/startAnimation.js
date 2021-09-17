@@ -1,10 +1,10 @@
 import { findLastDuration, highlightWinner } from './highlightWinner';
 import { firstFinished } from './whoFirstFinished';
+import { countBalance } from './balance';
 
 
 const btnStart = document.querySelector(".btn-start");
 export const allCompetitors = document.querySelectorAll(".competitor-info__competitor");
-console.log("allComp1", allCompetitors);
 
 btnStart.addEventListener("click", startMoving);
 
@@ -25,8 +25,10 @@ export function startMoving(event) {
 
     })
 
-    setTimeout(highlightWinner, findLastDuration() * 1000)
-    console.log("winComp1", window.competitors[0].duration);
+    const lastDurMs = findLastDuration() * 1000;
+
+    setTimeout(highlightWinner, lastDurMs);
+    setTimeout(countBalance, lastDurMs + 1000);
     firstFinished()
 }
 

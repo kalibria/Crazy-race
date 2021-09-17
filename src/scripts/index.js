@@ -5,3 +5,4 @@ import { startMoving } from "./startAnimation";
 import { firstFinished } from "./whoFirstFinished";
 import { LastFinished } from "./highlightWinner";
 import { fixRate } from "./placeABet";
+import { countBalance } from "./balance";

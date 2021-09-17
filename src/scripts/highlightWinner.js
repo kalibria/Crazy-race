@@ -19,7 +19,6 @@ export function findLastDuration() {
     const lastCompetitor = winnerAndLooser[winnerAndLooser.length - 1];
     const lastCompetitorDuration = lastCompetitor.duration;
 
-    console.log("lastDur", lastCompetitorDuration);
     return lastCompetitorDuration
 }
 
@@ -52,8 +51,8 @@ export function highlightWinner() {
     const field = document.querySelector(".field");
     field.append(elWrapperForWinner);
 
-    const elWithId = findElWithId();//массив
-    console.log("allElWithId", elWithId)
+    const elWithId = findElWithId();
+
     elWithId.forEach(item => elWrapperForFlags.append(item))
 
     const textWinner = document.createElement("p");

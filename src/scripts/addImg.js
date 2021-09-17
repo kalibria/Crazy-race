@@ -1,5 +1,5 @@
 const imgs = [
-    "./img/slug1.png",
+    "./img/slug01.png",
     "./img/slug2.png",
     "./img/slug3.png",
     "./img/slug4.png",

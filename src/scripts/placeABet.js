@@ -1,18 +1,30 @@
 const allFlagsInBetWindow = Array.from(document.querySelectorAll(".bet-window__flag"));
-console.log("betFlags", allFlagsInBetWindow);
+const divWithFlags = document.querySelector(".bet-window__wrapper")
 
+console.log("winCom", window.competitors);
+
+export const idBetFlag = [];
 
 export function fixRate(event) {
-    console.log("currentTar", event.currentTarget)
-    event.currentTarget.classList = "bet-window__flag-fixedBet";
+    const fixedFlag = event.target.closest("button");
+
+    fixedFlag.classList = "bet-window__flag-fixedBet";
+    console.log("fixedFlag", fixedFlag)
 
     allFlagsInBetWindow.forEach(item => {
-        if (item !== event.currentTarget) {
+        if (item !== fixedFlag) {
             item.classList = "bet-window__grayscale";
-            item.setAttribute("disabled", "disabled");
         }
+        item.setAttribute("disabled", "disabled");
     })
+    const indexFixedFlag = allFlagsInBetWindow.indexOf(fixedFlag);
+    console.log("index", indexFixedFlag);
+    idBetFlag.push(window.competitors[indexFixedFlag].id)
+    console.log("idBetFl", idBetFlag)
 }
 
-allFlagsInBetWindow.forEach(item => item.addEventListener("click", fixRate))
+
+divWithFlags.addEventListener("click", fixRate);
+
+
 

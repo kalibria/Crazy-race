@@ -6,3 +6,5 @@ import { firstFinished } from "./whoFirstFinished";
 import { LastFinished } from "./highlightWinner";
 import { fixRate } from "./placeABet";
 import { countBalance } from "./balance";
+import { returnToStart } from "./tryAgain";
+import { removeWinner } from "./removeWinner";

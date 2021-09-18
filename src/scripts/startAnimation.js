@@ -1,6 +1,8 @@
 import { findLastDuration, highlightWinner } from './highlightWinner';
 import { firstFinished } from './whoFirstFinished';
 import { countBalance } from './balance';
+import { removeAttribute } from './removeAttribute';
+import { removeWinner } from './removeWinner';
 
 
 const btnStart = document.querySelector(".btn-start");
@@ -26,10 +28,13 @@ export function startMoving(event) {
     })
 
     const lastDurMs = findLastDuration() * 1000;
+    firstFinished()
 
     setTimeout(highlightWinner, lastDurMs);
     setTimeout(countBalance, lastDurMs + 1000);
-    firstFinished()
+    setTimeout(removeAttribute, lastDurMs + 1000);
+    setTimeout(removeWinner, lastDurMs + 2000)
+
 }
 
 

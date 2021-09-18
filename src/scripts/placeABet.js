@@ -1,7 +1,8 @@
 const allFlagsInBetWindow = Array.from(document.querySelectorAll(".bet-window__flag"));
 const divWithFlags = document.querySelector(".bet-window__wrapper")
 
-export const idBetFlag = [];
+// export const idBetFlag = [];
+export let idBetFlag;
 
 export function fixRate(event) {
     const fixedFlag = event.target.closest("button");
@@ -15,7 +16,8 @@ export function fixRate(event) {
         item.setAttribute("disabled", "disabled");
     })
     const indexFixedFlag = allFlagsInBetWindow.indexOf(fixedFlag);
-    idBetFlag.push(window.competitors[indexFixedFlag].id)
+    // idBetFlag.push(window.competitors[indexFixedFlag].id)
+    idBetFlag = window.competitors[indexFixedFlag].id;
 }
 
 

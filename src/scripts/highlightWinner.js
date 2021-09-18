@@ -8,7 +8,6 @@ export function findfirst() {
         let id = winnerAndLooser[i].id;
         idWinner.push(id)
     }
-
     return idWinner
 }
 
@@ -29,8 +28,10 @@ function findElWithId() {
     let elWithId = [];
     idWinners.map(item => {
         let itemElById = document.getElementById(item);
-        itemElById.className = "winnerFlag";
-        elWithId.push(itemElById);
+
+        let cloneItem = itemElById.cloneNode(true);
+        cloneItem.className = "winnerFlag";
+        elWithId.push(cloneItem);
     })
 
     return elWithId
@@ -62,5 +63,8 @@ export function highlightWinner() {
     } else { textWinner.innerText = "WINNER!" };
     elWrapperForFlags.before(textWinner);
 
+
 }
+
+
 

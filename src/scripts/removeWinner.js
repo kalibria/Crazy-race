@@ -1,4 +1,4 @@
 export function removeWinner() {
-    const divWinner = document.querySelector(".wrapperForWinner");
+    const divWinner = document.querySelector(".wrapperForFlags");
     divWinner.remove();
 }

@@ -32,7 +32,7 @@ fetchData(personsPromises).then((allPersons) => {
     // competitors are now in window object, we can access them whenever we want
 
     // all these functions work with UI
-    // and should be called here as a single function
+    // and should be called here as a 
     const allFlagsForCompetitors = getAllFlagsEl(window.competitors);
     const allFlagsForBetWindow = getAllFlagsEl(window.competitors);
 

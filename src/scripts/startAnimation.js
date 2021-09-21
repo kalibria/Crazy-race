@@ -3,6 +3,7 @@ import { firstFinished } from './whoFirstFinished';
 import { countBalance } from './balance';
 import { removeAttribute } from './removeAttribute';
 import { removeWinner } from './removeWinner';
+import { displayCongratulations } from './displayCongratulations';
 
 
 const btnStart = document.querySelector(".btn-start");
@@ -20,10 +21,11 @@ export function startMoving(event) {
         let randomX2 = Math.floor(Math.random() * 10) / 10;
         let randomY2 = Math.floor(Math.random() * 10) / 10;
 
-        let randomDuration = Math.floor(Math.random() * 10);
+        let randomDuration = Math.floor(Math.random() * 0);
         window.competitors[i].duration = randomDuration;
 
         item.style.animation = `runLeft ${randomDuration}s forwards cubic-bezier(${randomX1}, ${randomY1}, ${randomX2}, ${randomY2})`;
+
 
     })
 
@@ -31,9 +33,10 @@ export function startMoving(event) {
     firstFinished()
 
     setTimeout(highlightWinner, lastDurMs);
-    setTimeout(countBalance, lastDurMs + 1000);
-    setTimeout(removeAttribute, lastDurMs + 1000);
-    setTimeout(removeWinner, lastDurMs + 2000)
+    setTimeout(countBalance, lastDurMs + 3000);
+    setTimeout(removeAttribute, lastDurMs + 3000);
+    setTimeout(removeWinner, lastDurMs + 3000);
+    setTimeout(displayCongratulations, lastDurMs + 3000);
 
 }
 

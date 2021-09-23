@@ -108,6 +108,7 @@ function removeSpiner() {
 
     if (window.flagsLoadedCount === TOTAL_EXPECTED_FLAG_COUNT) {
         hideShowElements(spiner1, divAllCompetrInfo)
+
     }
 }
 

@@ -8,3 +8,4 @@ import { fixRate } from "./placeABet";
 import { countBalance } from "./balance";
 import { returnToStart } from "./tryAgain";
 import { removeWinner } from "./removeWinner";
+import { resetBalance } from "./resetBalance";

@@ -1,4 +1,3 @@
-import { countBalance } from "./balance";
 import { idBetFlag } from "./placeABet";
 import { findfirst } from "./highlightWinner";
 

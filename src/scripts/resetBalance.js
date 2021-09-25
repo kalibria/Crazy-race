@@ -1,11 +1,12 @@
-import { getBalance } from "./balance";
-import { INITIAL_BALANCE } from "./balance";
-
+import {balanceManager} from './balance/balance-logic';
 
 export function resetBalance() {
-    const initialBalance = INITIAL_BALANCE;
+    const initialBalance = balanceManager.INITIAL_BALANCE;
+
     localStorage.balance = initialBalance;
+
     let balance = document.querySelector(".balance-window__balance");
+
     balance.innerHTML = `$${initialBalance}`;
 }
 

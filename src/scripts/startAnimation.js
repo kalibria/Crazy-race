@@ -1,9 +1,9 @@
 import { findLastDuration, highlightWinner } from './highlightWinner';
 import { firstFinished } from './whoFirstFinished';
-import { countBalance } from './balance';
 import { removeAttribute } from './removeAttribute';
 import { removeWinner } from './removeWinner';
 import { displayCongratulations } from './displayCongratulations';
+import {balanceManager} from './balance/balance-logic';
 
 
 const btnStart = document.querySelector(".btn-start");
@@ -33,7 +33,7 @@ export function startMoving(event) {
     firstFinished()
 
     setTimeout(highlightWinner, lastDurMs);
-    setTimeout(countBalance, lastDurMs + 3000);
+    setTimeout(balanceManager.updateBalance, lastDurMs + 3000);
     setTimeout(removeAttribute, lastDurMs + 3000);
     setTimeout(removeWinner, lastDurMs + 3000);
     setTimeout(displayCongratulations, lastDurMs + 3000);

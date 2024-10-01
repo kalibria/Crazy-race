@@ -10,10 +10,12 @@ const btnStart = document.querySelector(".btn-start");
 export const allCompetitors = document.querySelectorAll(".competitor-info__competitor");
 
 btnStart.addEventListener("click", startMoving);
+btnStart.setAttribute("disabled", "disabled")
 
 
 export function startMoving(event) {
     event.currentTarget.setAttribute("disabled", "disabled");
+
 
     allCompetitors.forEach((item, i) => {
         let randomX1 = Math.floor(Math.random() * 10) / 10;

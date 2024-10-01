@@ -9,11 +9,27 @@
   left: 20px;
 
 }
-
-.bet-window > p {
-  margin: 0;
+.bet-window__text-wrapper {
+  height: 50px;
+  p {
+    margin: 0;
+    color: red;
+    //animation: growShrink 2s infinite ease-in-out;
+  }
 }
 
+
+@keyframes growShrink {
+  0% {
+    font-size: 1.2em;
+  }
+  50% {
+    font-size: 1.5em;
+  }
+  100% {
+    font-size: 1.2em;
+  }
+}
 
 .bet-window__wrapper {
   display: flex;

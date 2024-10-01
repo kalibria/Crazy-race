@@ -3,10 +3,14 @@ const divWithFlags = document.querySelector(".bet-window__wrapper")
 
 // export const idBetFlag = [];
 export let idBetFlag;
+const btnStart = document.querySelector(".btn-start");
+const betWindowHeader = document.querySelector(".bet-window__text");
 
 export function fixRate(event) {
     const fixedFlag = event.target.closest("button");
+    betWindowHeader.style.animation = '';
 
+    btnStart.disabled = false;
     fixedFlag.classList = "bet-window__flag-fixedBet";
 
     allFlagsInBetWindow.forEach(item => {

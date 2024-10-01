@@ -19,6 +19,8 @@ divForBetWindow = Array.from(divForBetWindow);
 
 let spiner1 = document.querySelector(".spiner1");
 let divAllCompetrInfo = document.querySelector(".wrapper-for-all");
+let betWindowHeader = document.querySelector(".bet-window__text");
+betWindowHeader.style.animation = 'growShrink 2s infinite ease-in-out'
 
 const competitorsToFetch = divForFlag; // 4
 const personsPromises = competitorsToFetch.map((competitor, i) => {

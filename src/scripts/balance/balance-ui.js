@@ -1,4 +1,4 @@
-import {balanceManager} from './balance-logic';
+ import {balanceManager} from './balance-logic';
 
 class BalanceUi {
   constructor() {
@@ -11,4 +11,5 @@ class BalanceUi {
 }
 
 export const balanceUi = new BalanceUi();
-balanceUi.drawNewBalance(balanceManager.getInitialBalance());
+balanceUi.drawNewBalance(balanceManager.getBalance());
+

@@ -20,8 +20,6 @@ class BalanceManager {
         const balanceInLS = +localStorage.getItem(this.balanceKeyInLocalStorage)
 
         if (balanceInLS) {
-            console.log("LSbalance", localStorage.getItem(this.balanceKeyInLocalStorage))
-
             return balanceInLS;
         }
 
@@ -29,11 +27,7 @@ class BalanceManager {
     }
 
     updateBalance = () => {
-        console.log("this", this)
         let currentBalance = this.getBalance();
-
-        console.log("LSbalance1", localStorage.getItem(this.balanceKeyInLocalStorage));
-        console.log("initialBal", currentBalance)
 
         const idFirstCompetitor = findfirst();
 

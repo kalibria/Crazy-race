@@ -91,7 +91,7 @@ function getAllFlagsEl(jeneralInfo) {
 
 
     return allFlagsImg;
-};
+}
 
 
 function getAllElNames(jeneralInfo) {
@@ -138,37 +138,3 @@ function hideShowElements(hiddenEl, shownEl) {
 //---------------------
 
 
-
-
-
-
-// классы
-
-// class Competitor {
-//     constructor(nat) {
-//         this.nat = nat;
-//         this.generalInfo = generalInfo;
-//     }
-//     getCompetitorInfo() {
-
-//         let generalInfo = fetch("https://randomuser.me/api/")
-//             .then(Response => Response.json())
-//             .then(data => data.results[0].nat)
-//             .catch(err => console.log(err))
-
-//         return generalInfo;
-//     }
-
-//     appendFlag() {
-//         getCompetitorInfo().then((nat) => {
-
-//             let getImgFlag = document.createElement("img");
-//             getImgFlag.src = `https://www.countryflags.io/${nat}/flat/64.png`;
-
-//             let divForFlag = document.querySelector(".flag");
-//             divForFlag.append(getImgFlag);
-//         })
-//             .catch(console.log);
-
-//     }
-// }

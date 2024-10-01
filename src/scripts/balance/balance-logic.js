@@ -15,7 +15,6 @@ class BalanceManager {
     // arrow functions bind to class context automatically
     // so `this` inside this class is guaranteed to be the class object and not `window`
     getBalance = () => {
-        console.log('this.getInitialBalance', this.getInitialBalance)
         let initialBalance = this.getInitialBalance();
 
         const balanceInLS = +localStorage.getItem(this.balanceKeyInLocalStorage)
@@ -54,9 +53,3 @@ class BalanceManager {
 
 export const balanceManager = new BalanceManager(1000);
 
-// function Person(color) {
-//     this.eyeColor = color
-// }
-//
-// const masha = new Person('green')
-// masha.eyeColor

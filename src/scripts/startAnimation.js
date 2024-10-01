@@ -21,7 +21,7 @@ export function startMoving(event) {
         let randomX2 = Math.floor(Math.random() * 10) / 10;
         let randomY2 = Math.floor(Math.random() * 10) / 10;
 
-        let randomDuration = Math.floor(Math.random() * 0);
+        let randomDuration = Math.floor(Math.random() * 10);
         window.competitors[i].duration = randomDuration;
 
         item.style.animation = `runLeft ${randomDuration}s forwards cubic-bezier(${randomX1}, ${randomY1}, ${randomX2}, ${randomY2})`;

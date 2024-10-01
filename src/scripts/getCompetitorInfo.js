@@ -1,3 +1,11 @@
+import avstralia from '../img/flag_avstraliya_enl.jpg';
+import belgija from '../img/flag_belgija_enl.jpg';
+import danija from '../img/flag_danija_enl.jpg';
+import velikobritania from '../img/flag_velikobritanija_new.jpg';
+import {preloadImages} from "./preloadImages";
+
+
+
 const TOTAL_EXPECTED_FLAG_COUNT = 4;
 window.flagsLoadedCount = 0;
 window.competitors = []
@@ -66,14 +74,19 @@ function getAllFlagsEl(jeneralInfo) {
 
     jeneralInfo.forEach(i => allNats.push(i.nat))
 
-    const allFlagsImg = [];
+    const srcImgs = [avstralia, belgija, danija, velikobritania]
 
-    allNats.map(el => {
+    let allFlagsImg = [];
+
+    allNats.map((el, index) => {
         let ImgFlag = document.createElement("img");
-        ImgFlag.src = `https://www.countryflags.io/${el}/flat/64.png`;
+
+        ImgFlag.src= srcImgs[index]
+
         allFlagsImg.push(ImgFlag);
 
-        ImgFlag.onload = removeSpiner
+        preloadImages(srcImgs, removeSpiner)
+
     })
 
 

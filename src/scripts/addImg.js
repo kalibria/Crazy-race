@@ -1,8 +1,10 @@
+import slug1 from '../img/slug01.png';
+import slug2 from '../img/slug2.png';
+import slug3 from '../img/slug3.png';
+import slug4 from '../img/slug4.png'
+
 const imgs = [
-    "./img/slug01.png",
-    "./img/slug2.png",
-    "./img/slug3.png",
-    "./img/slug4.png",
+    slug1, slug2, slug3, slug4
 ];
 
 const competitors = document.querySelectorAll(".competitor-info__competitor");

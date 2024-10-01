@@ -1,46 +1,75 @@
 const path = require('path');
-const webpack = require('webpack');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
-const distFolder = path.resolve(__dirname, 'dist');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    entry: ['./src/scripts/index.js', './src/styles/styles.scss'],
+    entry: ['./src/scripts/index.js', './src/styles/styles.scss'], // Update your entry point if needed
     output: {
-        path: distFolder,
-        filename: 'masha-bundle.js',
-        publicPath: '/',
-    },
-    module: {
-        rules: [{
-            test: /\.js$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader'
-        }, {
-            test: /\.scss$/,
-            use: [
-                MiniCssExtractPlugin.loader,
-                "css-loader",
-                "sass-loader",
-            ]
-        }]
-    },
-    plugins: [
-        new HtmlWebPackPlugin({
-            template: path.resolve(__dirname, 'src/index.html'),
-            filename: 'index.html',
-        }),
-        new MiniCssExtractPlugin({
-            filename: "styles.css",
-        }),
-        new webpack.HotModuleReplacementPlugin(),
-    ],
-    devtool: 'source-map',
-    devServer: {
-        contentBase: './src',
-        hot: true,
-        watchContentBase: true
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
+        clean: true, // Webpack 5 automatically cleans the output directory
     },
     mode: 'development',
-}
+    performance: {
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
+    },
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader',
+                    'sass-loader'],
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                    loader: 'babel-loader',
+                },
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            mozjpeg: {
+                                progressive: true,
+                                quality: 65,  // Compress quality level (adjust as needed)
+                            },
+                            optipng: {
+                                enabled: false,  // Disable optipng, use pngquant instead
+                            },
+                            pngquant: {
+                                quality: [0.65, 0.90],  // Adjust quality for PNG files
+                                speed: 4,
+                            },
+                            gifsicle: {
+                                interlaced: false,
+                            },
+                            // Enable WebP conversion if needed
+                            webp: {
+                                quality: 75,
+                            },
+                        },
+                    }
+                ],
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                type: 'asset/resource',
+            },
+
+        ],
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+        }),
+        new MiniCssExtractPlugin(),
+    ],
+    devServer: {
+        static: './dist',
+        hot: true,
+    },
+};
+
